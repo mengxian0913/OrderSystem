@@ -8,7 +8,14 @@ public enum OrderList {
     E("Caesar salad",300),
     F("Greek salad",250),
     G("House salad",200),
-    H("salad",100);
+    H("orange juice",150),
+    I("latte",150),
+    J("cola",100),
+    K("beer",150),
+    L("steak",400),
+    M("pizza",300),
+    N("pasta",300),
+    O("fries",150);
 
     private final String orderName;
     private final int orderPrice;
@@ -22,4 +29,5 @@ public enum OrderList {
     public String getName(){
         return orderName;
     }
+
 }

@@ -6,6 +6,7 @@ import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import org.example.Order.*;
 
 public class OrderSystem {
     private final ArrayList<Membership> member;
@@ -39,6 +40,7 @@ public class OrderSystem {
         }
         return tempVar;
     }
+
 
     public int coupon(int amount, String phone, String name, String timePeriod, boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon) {
         DateTimeFormatter dtfInput = DateTimeFormatter.ofPattern("u-M-d HH", Locale.ENGLISH);
