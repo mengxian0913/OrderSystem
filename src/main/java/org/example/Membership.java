@@ -18,6 +18,8 @@ public class Membership {
     }
 
     Membership() {
+        this.phoneNumber = null;
+        this.name = null;
     }
 
     public void SetInfo(String phone, String name) {

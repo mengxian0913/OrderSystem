@@ -1,40 +1,33 @@
 package org.example;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoField;
 import java.util.ArrayList;
-import java.util.Locale;
-
-import org.example.Order.*;
 
 public class OrderSystem {
     private final ArrayList<Membership> member;
+    private final Table[] tableNo;
 
     OrderSystem() {
         member = new ArrayList<>();
+        tableNo = new Table[12];
     }
 
     public void addMembership(String phone, String name) {
         member.add(new Membership(phone, name));
     }
-
-//    public boolean isMembership(String phone, String name) {
-//        boolean isMembership = false;
-//        for (Membership temp : member) {
-//            if (phone.equals(temp.getPhoneNumber()) && name.equals(temp.getName())) {
-//                isMembership = true;
-//                break;
-//            }
-//        }
-//        return isMembership;
-//    }
+    public void modifyMemberInfo(String oldPhone,String oldName,String newPhone,String newName){
+        for (Membership temp : member) {
+            if (oldPhone.equals(temp.getPhoneNumber()) && oldName.equals(temp.getName())) {
+                temp.SetInfo(newPhone,newPhone);
+                break;
+            }
+        }
+    }
 
     public Membership isMembership(String phone, String name) {
         Membership tempVar = new Membership();
         for (Membership temp : member) {
             if (phone.equals(temp.getPhoneNumber()) && name.equals(temp.getName())) {
-                tempVar=temp;
+                tempVar = temp;
                 break;
             }
         }
@@ -42,44 +35,27 @@ public class OrderSystem {
     }
 
 
-    public int coupon(int amount, String phone, String name, String timePeriod, boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon) {
-        DateTimeFormatter dtfInput = DateTimeFormatter.ofPattern("u-M-d HH", Locale.ENGLISH);
-        DateTimeFormatter dtfOutput = DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH);
-        LocalDate t = LocalDate.parse(timePeriod, dtfInput);
-        Membership memberInfo = isMembership(phone,name);
-        double price = amount;
-        boolean night = false, weekend = false;
-
-        if (t.format(dtfOutput).equals("Saturday") || t.format(dtfOutput).equals("Sunday")) {
-            weekend = true;
+    public void booking(String phone, String name, int tableNumber) throws Exception {
+        if(tableNo[tableNumber-1].tableStatus()){
+            throw new Exception("這個位置已經被訂位了");
         }
-        if (dtfInput.parse(timePeriod).get(ChronoField.HOUR_OF_DAY) >= 18) {
-            night = true;
-        }
-
-        if (isEmploy) {
-            price *= 0.7;
-        } else if (isBirth) {
-            price *= 0.8;
-        } else if (isTeach) {
-            price *= 0.85;
-        } else if (useCoupon) {
-            if (memberInfo.getCoupon15off() > 0) {
-                memberInfo.subCoupon15off();
-                price *= 0.85;
-            } else if (memberInfo.getCoupon10off() > 0) {
-                memberInfo.subCoupon10off();
-                price *= 0.9;
-            }
-        }
-        if (night || weekend) {
-            price *= 1.15;
+        Membership memberInfo = isMembership(phone, name);
+        if (memberInfo.getPhoneNumber() != null) {
+            tableNo[tableNumber - 1] = new Table(memberInfo);
         } else {
-            price *= 1.1;
+            tableNo[tableNumber - 1] = new Table();
         }
-        memberInfo.totalConsumption((int) Math.ceil(price));
-
-        return (int) Math.ceil(price);
     }
+
+    public void order(String index,int tableNumber){
+        tableNo[tableNumber - 1].orderFood(index);
+    }
+
+    public int checkout(int tableNumber,String time,boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon) throws Exception {
+        tableNo[tableNumber-1].restoreStatus();
+        tableNo[tableNumber-1].submitOrder();
+        return tableNo[tableNumber-1].coupon(time,isBirth,isEmploy,isTeach,useCoupon);
+    }
+
 
 }
