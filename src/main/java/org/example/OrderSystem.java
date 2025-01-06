@@ -24,7 +24,7 @@ public class OrderSystem {
     public void modifyMemberInfo(String oldPhone,String oldName,String newPhone,String newName){
         for (Membership temp : member) {
             if (oldPhone.equals(temp.getPhoneNumber()) && oldName.equals(temp.getName())) {
-                temp.SetInfo(newPhone,newPhone);
+                temp.SetInfo(newPhone,newName);
                 break;
             }
         }
