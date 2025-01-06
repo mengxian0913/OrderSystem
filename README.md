@@ -15,36 +15,30 @@
   套餐A:
   
     pasta+drink=20
-    
     steak+drink=20
     
   套餐B:
   
     pasta+appetizer=40
-    
     steak+appetizer=40
     
   套餐C:
   
     pasta+salad+drink=50
-    
     steak+salad+drink=50
     
   套餐D:
   
     pasta+appetizer+drink=70
-    
     steak+appetizer+drink=70
     
   套餐E:
   
     pasta+dessert+drink=100
-    
     steak+dessert+drink=100
     
   套餐F:
   
     pasta+dessert+appetizer+salad+drink=250
-    
     steak+dessert+appetizer+salad+drink=250
     
