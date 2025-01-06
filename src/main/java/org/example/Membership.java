@@ -30,9 +30,9 @@ public class Membership {
     private boolean isExchange10off;
 
     /**
-     * Membership建構子
-     * @param phone 傳參至class variable:phoneNumber
-     * @param name  傳參至class variable:name
+     * Membership建構子 & 初始化
+     * @param phone 傳參數至class variable:phoneNumber
+     * @param name  傳參數至class variable:name
      */
     protected Membership(final String phone, final String name) {
         this.phoneNumber = phone;
@@ -44,7 +44,7 @@ public class Membership {
     }
 
     /**
-     * Membership空建構子
+     * Membership空建構子 & 初始化
      */
     protected Membership() {
         this.phoneNumber = "";
@@ -123,7 +123,6 @@ public class Membership {
 
     /**
      * 查閱消費累積總額
-     *
      * @return 回傳消費累積總額
      */
     public int getAccumulatedPrice() {

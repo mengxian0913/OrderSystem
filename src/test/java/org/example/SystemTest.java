@@ -16,13 +16,13 @@ public class SystemTest {
     public void testAddMembership() {
         Membership member = new Membership("0912345789","test");
         order.addMembership(member);
-        assertEquals(member,order.isMembership("0912345789","test"));
+        assertEquals(member,order.findMembership("0912345789","test"));
     }
 
     @Test
     public void testOrder()  {
         order.booking("","",1);
-        order.order("A",1);
+        order.order("Chocolate Cake",1);
         int total=order.checkout(1,"2024-12-28 10",true,false,false,false);
         assertEquals(460,total);
     }
@@ -31,12 +31,12 @@ public class SystemTest {
     public void testAccumulatedPrice()  {
         order.addMembership("0968344000","Alex");
         order.booking("0968344000","Alex",1);
-        order.order("A",1);
+        order.order("Chocolate Cake",1);
         order.checkout(1,"2024-12-28 10",true,false,false,false);
         order.booking("0968344000","Alex",1);
-        order.order("A",1);
+        order.order("Chocolate Cake",1);
         order.checkout(1,"2024-12-28 12",true,false,false,false);
-        assertEquals(920,order.isMembership("0968344000","Alex").getAccumulatedPrice());
+        assertEquals(920,order.findMembership("0968344000","Alex").getAccumulatedPrice());
     }
 
 }
