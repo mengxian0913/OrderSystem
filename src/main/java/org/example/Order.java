@@ -151,6 +151,6 @@ public class Order {
     }
 
     public int getConsumption(){
-        return totalConsumption-menuset();
+        return totalConsumption + menuset();
     }
 }
