@@ -1,6 +1,6 @@
 package org.example;
 
-public enum OrderList {
+public enum Menu {
     A("Double Chocolate Cake",500),
     B("Burnt Cream",300),
     C("Mousse Cake",250),
@@ -17,17 +17,17 @@ public enum OrderList {
     N("pasta",300),
     O("fries",150);
 
-    private final String orderName;
-    private final int orderPrice;
-    OrderList( String orderName,int orderPrice) {
-        this.orderName=orderName;
-        this.orderPrice=orderPrice;
+    private final String dishName;
+    private final int dishPrice;
+    Menu(String orderName, int orderPrice) {
+        this.dishName=orderName;
+        this.dishPrice=orderPrice;
     }
     public int getPrice(){
-        return orderPrice;
+        return dishPrice;
     }
     public String getName(){
-        return orderName;
+        return dishName;
     }
 
 }
