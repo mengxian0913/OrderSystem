@@ -9,11 +9,18 @@ public class OrderSystem {
     OrderSystem() {
         member = new ArrayList<>();
         tableNo = new Table[12];
+        for(int i=0;i<12;i++){
+            tableNo[i] = new Table();
+        }
     }
 
     public void addMembership(String phone, String name) {
         member.add(new Membership(phone, name));
     }
+    public void addMembership(Membership member) {
+        this.member.add(member);
+    }
+
     public void modifyMemberInfo(String oldPhone,String oldName,String newPhone,String newName){
         for (Membership temp : member) {
             if (oldPhone.equals(temp.getPhoneNumber()) && oldName.equals(temp.getName())) {
@@ -42,8 +49,10 @@ public class OrderSystem {
         Membership memberInfo = isMembership(phone, name);
         if (memberInfo.getPhoneNumber() != null) {
             tableNo[tableNumber - 1] = new Table(memberInfo);
+            tableNo[tableNumber - 1].bookingStatus();
         } else {
             tableNo[tableNumber - 1] = new Table();
+            tableNo[tableNumber - 1].bookingStatus();
         }
     }
 

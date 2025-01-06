@@ -14,14 +14,14 @@ public class Table {
     private final ArrayList<String> orderList;
 
     Table() {
-        isBook = true;
+        isBook = false;
         isMember = false;
         orderInfo = new Order();
         orderList = new ArrayList<>();
     }
 
     Table(Membership member) {
-        isBook = true;
+        isBook = false;
         isMember = true;
         memberInfo = member;
         orderInfo = new Order();
@@ -39,6 +39,9 @@ public class Table {
     public void submitOrder() throws Exception {
         orderInfo.orderMenu(orderList);
         orderInfo.orderConsumption();
+    }
+    public void bookingStatus(){
+        isBook=true;
     }
     public void restoreStatus(){
         isBook=false;
@@ -80,8 +83,9 @@ public class Table {
                 price *= 1.1;
             }
         }
-        memberInfo.totalConsumption((int) Math.ceil(price));
-
+        if(isMember) {
+            memberInfo.totalConsumption((int) Math.ceil(price));
+        }
         return (int) Math.ceil(price);
     }
 }

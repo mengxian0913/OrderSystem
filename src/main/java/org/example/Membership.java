@@ -59,6 +59,8 @@ public class Membership {
         coupon10off--;
     }
 
+    public int getAccumulatedPrice(){return accumulatedPrice;}
+
     public void totalConsumption(int price) {
         accumulatedPrice += price;
         if (isExchange10off) {
