@@ -36,7 +36,7 @@ public class Table {
         orderList.add(index);
     }
 
-    public void submitOrder() throws Exception {
+    public void submitOrder() {
         orderInfo.orderMenu(orderList);
         orderInfo.orderConsumption();
     }
@@ -47,14 +47,14 @@ public class Table {
         isBook=false;
     }
 
-    public int coupon(String timePeriod, boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon) {
-        DateTimeFormatter dtfInput = DateTimeFormatter.ofPattern("u-M-d HH", Locale.ENGLISH);
-        DateTimeFormatter dtfOutput = DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH);
-        LocalDate t = LocalDate.parse(timePeriod, dtfInput);
+    public int coupon(final String timePeriod,final boolean isBirth,final boolean isEmploy,final boolean isTeach,final boolean useCoupon) {
+        final DateTimeFormatter dtfInput = DateTimeFormatter.ofPattern("u-M-d HH", Locale.ENGLISH);
+        final DateTimeFormatter dtfOutput = DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH);
+        final LocalDate time = LocalDate.parse(timePeriod, dtfInput);
         double price = orderInfo.getConsumption();
         boolean night = false, weekend = false;
 
-        if (t.format(dtfOutput).equals("Saturday") || t.format(dtfOutput).equals("Sunday")) {
+        if ("Saturday".equals(time.format(dtfOutput)) || "Sunday".equals(time.format(dtfOutput))) {
             weekend = true;
         }
         if (dtfInput.parse(timePeriod).get(ChronoField.HOUR_OF_DAY) >= 18) {
@@ -84,7 +84,7 @@ public class Table {
             }
         }
         if(isMember) {
-            memberInfo.totalConsumption((int) Math.ceil(price));
+            memberInfo.addConsumption((int) Math.ceil(price));
         }
         return (int) Math.ceil(price);
     }

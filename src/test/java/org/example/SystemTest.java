@@ -20,7 +20,7 @@ public class SystemTest {
     }
 
     @Test
-    public void testOrder() throws Exception {
+    public void testOrder()  {
         order.booking("","",1);
         order.order("A",1);
         int total=order.checkout(1,"2024-12-28 10",true,false,false,false);
@@ -28,7 +28,7 @@ public class SystemTest {
     }
 
     @Test
-    public void testAccumulatedPrice() throws Exception {
+    public void testAccumulatedPrice()  {
         order.addMembership("0968344000","Alex");
         order.booking("0968344000","Alex",1);
         order.order("A",1);

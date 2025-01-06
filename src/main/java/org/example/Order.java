@@ -11,10 +11,10 @@ public class Order {
         orderList = new ArrayList<>();
     }
 
-    public void orderMenu(ArrayList<String> menu) throws Exception {
+    public void orderMenu(ArrayList<String> menu)  {
         for (String menuName : menu) {
             if (menuName.length() != 1) {
-                throw new Exception("菜單代號有誤");
+                throw new AssertionError("菜單代號有誤");
             }
             switch (menuName) {
                 case "A":

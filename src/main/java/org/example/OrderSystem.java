@@ -24,7 +24,7 @@ public class OrderSystem {
     public void modifyMemberInfo(String oldPhone,String oldName,String newPhone,String newName){
         for (Membership temp : member) {
             if (oldPhone.equals(temp.getPhoneNumber()) && oldName.equals(temp.getName())) {
-                temp.SetInfo(newPhone,newName);
+                temp.setInfo(newPhone,newName);
                 break;
             }
         }
@@ -42,9 +42,9 @@ public class OrderSystem {
     }
 
 
-    public void booking(String phone, String name, int tableNumber) throws Exception {
+    public void booking(String phone, String name, int tableNumber)  {
         if(tableNo[tableNumber-1].tableStatus()){
-            throw new Exception("這個位置已經被訂位了");
+            throw new AssertionError("這個位置已經被訂位了");
         }
         Membership memberInfo = isMembership(phone, name);
         if (memberInfo.getPhoneNumber() != null) {
@@ -60,7 +60,7 @@ public class OrderSystem {
         tableNo[tableNumber - 1].orderFood(index);
     }
 
-    public int checkout(int tableNumber,String time,boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon) throws Exception {
+    public int checkout(int tableNumber,String time,boolean isBirth, boolean isEmploy, boolean isTeach, boolean useCoupon)  {
         tableNo[tableNumber-1].restoreStatus();
         tableNo[tableNumber-1].submitOrder();
         return tableNo[tableNumber-1].coupon(time,isBirth,isEmploy,isTeach,useCoupon);
