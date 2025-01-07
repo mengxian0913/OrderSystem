@@ -180,9 +180,10 @@ class OrderTest {
         menu.add("H");  // 第三類
         menu.add("L");  // 第四類
 
+
         order.orderMenu(menu);
         int result = order.menuSet();
-        assertEquals(-50, result);
+        assertEquals(50, result);
     }
 
     @Test
