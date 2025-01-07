@@ -11,25 +11,30 @@
 
   菜單內容(金額還沒有調，點餐的字串就是此字串(含空格)):
 
+      /*Pasta Type*/
       Pesto Pasta 400$
       Garlic Pasta 400$
       Creamy Pasta 400$
       Tomato Pasta 400$
-      
+
+      /*Steak Type*/
       Beef Steak 500$
       Pork Chop 500$
       Chicken Cutlet 500$
       Lamb Chop 500$
-      
+
+      /*Drink Type*/
       Chocolate Cake 500$
       Burnt Cream 300$
       Mousse Cake 250$
       Brownie 300$
-      
+
+      /*Salad Type*/
       Caesar Salad 300$
       Greek Salad 250$
       House Salad 200$
-      
+
+      /*Drink Type*/
       Black Tea 50$
       Milk Tea 70$
       Orange Juice 150$
@@ -37,7 +42,8 @@
       Americano 100$
       Cola 100$
       Beer 150$
-      
+
+      /*Appetizer Type*/
       Fries 150$
       Karaage 150$
       Chicken Nuggets 150$
