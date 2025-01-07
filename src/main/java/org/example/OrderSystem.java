@@ -87,11 +87,11 @@ public class OrderSystem {
             throw new AssertionError("這個位置已經被訂位了");
         }
         final Membership memberInfo = findMembership(phone, name);
-        if (!memberInfo.getPhoneNumber().isEmpty()) {
-            tableNo[tableNumber - 1] = new Table(memberInfo);
+        if (memberInfo.getPhoneNumber().isEmpty()) {
+            tableNo[tableNumber - 1] = new Table();
             tableNo[tableNumber - 1].bookingStatus();
         } else {
-            tableNo[tableNumber - 1] = new Table();
+            tableNo[tableNumber - 1] = new Table(memberInfo);
             tableNo[tableNumber - 1].bookingStatus();
         }
     }
@@ -113,7 +113,8 @@ public class OrderSystem {
      * @param isTeach 傳參數代表是否為合作教職園與合作校園學生    @param useCoupon 傳參數代表是否會員有需要使用折價券
      * @return 最終的結帳金額
      */
-    public int checkout(final int tableNumber,final String time,final boolean isBirth,final boolean isEmploy,final boolean isTeach,final boolean useCoupon)  {
+    public int checkout(final int tableNumber,final String time,final boolean isBirth,final boolean isEmploy,
+                        final boolean isTeach,final boolean useCoupon)  {
         tableNo[tableNumber-1].restoreStatus();
         tableNo[tableNumber-1].submitOrder();
         return tableNo[tableNumber-1].coupon(time,isBirth,isEmploy,isTeach,useCoupon);

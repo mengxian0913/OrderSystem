@@ -103,11 +103,10 @@ public class Table {
      * @param isTeach 判斷是否是合作教職園與合作校園學生  @param useCoupon 判斷是否會員有需要使用折價券
      * @return 打折完與加完服務費後的最終金額
      */
-    public int coupon(final String timePeriod, final boolean isBirth, final boolean isEmploy, final boolean isTeach, final boolean useCoupon) {
-
+    public int coupon(final String timePeriod, final boolean isBirth, final boolean isEmploy,
+                      final boolean isTeach, final boolean useCoupon) {
         double price = orderInfo.getConsumption();
         final boolean needExtraPay = isNightOrWeekend(timePeriod);
-
         if (isEmploy) {
             price *= 0.7;
         } else if (isBirth) {
@@ -127,7 +126,7 @@ public class Table {
         if (isMember) {
             memberInfo.addConsumption((int) Math.ceil(price));
         }
-        return (int) Math.ceil(price);
+        return (int) Math.round(price);
     }
 
     /**

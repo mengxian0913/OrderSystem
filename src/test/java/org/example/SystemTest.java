@@ -58,7 +58,7 @@ public class SystemTest {
         settest.order("Pesto Pasta",3);
         settest.order("Black Tea",3);
         total = settest.checkout(3,"2024-12-26 10",true,false,false,false);
-        assertEquals(379,total);
+        assertEquals(378,total);
 
         settest=new OrderSystem();
         settest.booking("","",3);
@@ -110,7 +110,7 @@ public class SystemTest {
         settest1.order("Tomato Pasta",4);
         settest1.order("Americano",4);
         total = settest1.checkout(4,"2024-12-26 22",false,false,false,true);
-        assertEquals(861,total);
+        assertEquals(860,total);
     }
     @Test
     public void testSetB() {
@@ -137,7 +137,7 @@ public class SystemTest {
         settest.order("Lamb Chop",2);
         settest.order("Black Tea",2);
         int total = settest.checkout(2,"2024-12-26 10",false,false,false,false);
-        assertEquals(881,total);
+        assertEquals(880,total);
 
         settest=new OrderSystem();
         settest.booking("","",3);
@@ -145,7 +145,7 @@ public class SystemTest {
         settest.order("Pesto Pasta",3);
         settest.order("Black Tea",3);
         total = settest.checkout(3,"2024-12-26 10",false,false,false,false);
-        assertEquals(771,total);
+        assertEquals(770,total);
 
         settest=new OrderSystem();
         settest.booking("","",2);
@@ -155,7 +155,7 @@ public class SystemTest {
         settest.order("Beef Steak",2);
         settest.order("Black Tea",2);
         total = settest.checkout(2,"2024-12-26 10",false,false,false,false);
-        assertEquals(1761,total);
+        assertEquals(1760,total);
 
         settest=new OrderSystem();
         settest.booking("","",3);
@@ -165,7 +165,7 @@ public class SystemTest {
         settest.order("Pesto Pasta",3);
         settest.order("Black Tea",3);
         total = settest.checkout(3,"2024-12-26 10",false,false,false,false);
-        assertEquals(1541,total);
+        assertEquals(1540,total);
     }
 
     @Test
@@ -207,7 +207,7 @@ public class SystemTest {
         settest.order("Pesto Pasta",3);
         settest.order("Black Tea",3);
         total = settest.checkout(3,"2024-12-26 10",false,false,false,false);
-        assertEquals(1706,total);
+        assertEquals(1705,total);
     }
 
     @Test
@@ -224,7 +224,7 @@ public class SystemTest {
         settest.order("Beef Steak",2);
         settest.order("Milk Tea",2);
         int total = settest.checkout(2,"2024-12-26 10",false,false,false,false);
-        assertEquals(2949,total);
+        assertEquals(2948,total);
 
         settest=new OrderSystem();
         settest.booking("","",3);
@@ -237,7 +237,7 @@ public class SystemTest {
         settest.order("Cola",3);
         settest.order("Beer",3);
         total = settest.checkout(3,"2024-12-26 10",false,false,false,false);
-        assertEquals(1981,total);
+        assertEquals(1980,total);
 
         settest=new OrderSystem();
         settest.booking("","",3);

@@ -60,7 +60,7 @@ public class Order {
      * 連結到Class.MenuCombo
      * @return 套餐折扣的總金額
      */
-    int menuSet() {
+    protected int menuSet() {
         final int[] itemCount = getItemAmount();
         int adjust = 0;
         if (itemCount[0] > 0 || itemCount[1] > 0 ) {
@@ -82,7 +82,7 @@ public class Order {
      * 3.Salad  4.Drink  5.Appetizer
      * @return 各種類的餐點數量
      */
-    int[] getItemAmount() {
+    protected int[] getItemAmount() {
         final int[] amount = new int[6];
         amount[0]=getPastaAmount();
         amount[1]=getSteakAmount();
