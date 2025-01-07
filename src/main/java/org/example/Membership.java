@@ -138,8 +138,8 @@ public class Membership {
      */
     public void addConsumption(final int price) {
         accumulatedPrice += price;
-        if (isExchange10off && accumulatedPrice >= 10_000) {
-            accumulatedPrice -= 10_000;
+        if (isExchange10off && accumulatedPrice >= 10000) {
+            accumulatedPrice -= 10000;
             this.addCoupon15off();
             isExchange10off = false;
         }
