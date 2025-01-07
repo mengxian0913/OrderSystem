@@ -134,7 +134,7 @@ public class Table {
      * @param timePeriod 傳參數去判斷時間
      * @return 是否需要額外多加收服務費
      */
-    private boolean isNightOrWeekend(final String timePeriod) {
+    protected boolean isNightOrWeekend(final String timePeriod) {
         final DateTimeFormatter dtfInput = DateTimeFormatter.ofPattern("u-M-d HH", Locale.ENGLISH);
         final DateTimeFormatter dtfOutput = DateTimeFormatter.ofPattern("EEEE", Locale.ENGLISH);
         final LocalDate time = LocalDate.parse(timePeriod, dtfInput);
@@ -153,7 +153,7 @@ public class Table {
      * 判斷是否有填寫會員與判斷是否擁有折價券
      * @return 打折的折數
      */
-    private double useCouponDiscount(){
+    protected double useCouponDiscount(){
         double discount=1;
         if(isMember){
             if (memberInfo.getCoupon15off() > 0) {

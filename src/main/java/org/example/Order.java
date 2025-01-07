@@ -13,7 +13,7 @@ public class Order {
     /**
      * 紀錄餐點列表，連結到Enum.Menu
      */
-    private final ArrayList<Menu> orderList;
+    public final ArrayList<Menu> orderList;
 
     /**
      * Order建構子 & 初始化
@@ -28,7 +28,7 @@ public class Order {
      * 是->存入orderList紀錄餐點  否->報錯
      * @param dishNameList 參數為Class.Table桌號記錄所有的點餐內容
      */
-    public void orderMenu(final ArrayList<String> dishNameList)  {
+    public void orderMenu(final ArrayList<String> dishNameList) throws IllegalArgumentException  {
         boolean isErrorName;
         for (final String menuName : dishNameList) {
             isErrorName=true;
@@ -40,7 +40,7 @@ public class Order {
                 }
             }
             if(isErrorName){
-                throw new AssertionError("餐點名稱有誤");
+                throw new IllegalArgumentException("餐點名稱有誤");
             }
         }
     }

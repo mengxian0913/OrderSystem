@@ -148,7 +148,5 @@ public class Membership {
             this.addCoupon10off();
             isExchange10off = true;
         }
-
     }
-
 }
