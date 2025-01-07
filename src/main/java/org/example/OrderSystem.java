@@ -87,7 +87,7 @@ public class OrderSystem {
             throw new AssertionError("這個位置已經被訂位了");
         }
         final Membership memberInfo = findMembership(phone, name);
-        if (memberInfo.getPhoneNumber() != null) {
+        if (!memberInfo.getPhoneNumber().isEmpty()) {
             tableNo[tableNumber - 1] = new Table(memberInfo);
             tableNo[tableNumber - 1].bookingStatus();
         } else {
