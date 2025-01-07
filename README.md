@@ -23,7 +23,7 @@
       Chicken Cutlet 500$
       Lamb Chop 500$
 
-      /*Drink Type*/
+      /*Dessert Type*/
       Chocolate Cake 500$
       Burnt Cream 300$
       Mousse Cake 250$
