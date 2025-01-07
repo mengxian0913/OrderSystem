@@ -38,5 +38,4 @@ public class SystemTest {
         order.checkout(1,"2024-12-28 12",true,false,false,false);
         assertEquals(920,order.isMembership("0968344000","Alex").getAccumulatedPrice());
     }
-
 }

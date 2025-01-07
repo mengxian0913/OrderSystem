@@ -11,7 +11,7 @@ public class Order {
         orderList = new ArrayList<>();
     }
 
-    public void orderMenu(ArrayList<String> menu)  {
+    public void orderMenu(ArrayList<String> menu)  throws Error {
         for (String menuName : menu) {
             if (menuName.length() != 1) {
                 throw new AssertionError("菜單代號有誤");
@@ -63,7 +63,7 @@ public class Order {
                     orderList.add(Menu.O);
                     break;
                 default:
-                    break;
+                    throw new AssertionError("菜單代號有誤");
             }
         }
     }
