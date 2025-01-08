@@ -96,4 +96,10 @@
   
     pasta+dessert+appetizer+salad+drink=250
     steak+dessert+appetizer+salad+drink=250
+
+
+## 測試
+
+- 單元測試： OrderSystemTest2
+- 整合測試： 其他
     
